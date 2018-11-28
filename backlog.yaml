@@ -1,0 +1,27 @@
+1:
+    description: Setup project environment
+    features:
+        - virtual environment
+        - requirements.txt file
+    status: Open
+2:
+    description: Setup pytest environment
+    features:
+        - create conftest.py file
+    status: Open
+3:
+    description: Implement the Logger singleton class
+    features:
+        - logs test execution steps in certain format
+        - logs assertions in certain format
+    status: Open
+4:
+    description: Implement the Session class
+    features:
+        - can execute GET request
+        - supports any endpoint as a parameter on target sevice
+        - uses Logger class inside
+    status: Open
+5:
+    description: Design the first test script for /albums endpoint
+    status: Open
