@@ -3,7 +3,7 @@
     features:
         - virtual environment
         - requirements.txt file
-    status: Open
+    status: Resolved
 2:
     description: Setup pytest environment
     features:
