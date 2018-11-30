@@ -8,13 +8,13 @@
     description: Setup pytest environment
     features:
         - create conftest.py file
-    status: Open
+    status: Won't Do (no real need at the moment)
 3:
     description: Implement the Logger singleton class
     features:
         - logs test execution steps in certain format
         - logs assertions in certain format
-    status: Open
+    status: Resolved
 4:
     description: Implement the Session class
     features:
