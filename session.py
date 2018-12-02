@@ -1,28 +1,32 @@
+import json
 from requests import RequestException, Session
 
 from logger import Logger
 from singleton import Singleton
 
 
-class HTTPSession(Singleton, Session):
+class HTTPSession(Session):
 
     URL = 'https://jsonplaceholder.typicode.com/'
 
     @staticmethod
     def send_request(request_type, endpoint, **params):
+        do_logging = params.pop('do_logging', True)
         try:
             response = request_type(endpoint, **params)
-            Logger.log_request(request_type, endpoint, params, response.status_code)
-            return response
+            if do_logging:
+                Logger.log_request(request_type, endpoint, params, response.status_code)
+            return response.status_code, json.loads(response.text)
         except RequestException as e:
-            Logger.log_exception('Could not send {} request due to exception: {}'.format(request_type, e.message))
+            Logger.log_exception('Could not send {} request due to exception: {}'.format(request_type, e))
 
-request_types = type('RequestTypes', (object,), dict())
-request_types.GET = HTTPSession().get
-request_types.POST = HTTPSession().post
+class RequestTypes:
+    GET = HTTPSession().get
+    POST = HTTPSession().post
 
-endpoints = type('Endpoints', (object,), dict())
-endpoints.ALBUMS = HTTPSession.URL + 'albums'
-endpoints.USERS = HTTPSession.URL + 'users'
+class Endpoints:
+    ALBUMS = HTTPSession.URL + 'albums'
+    USERS = HTTPSession.URL + 'users'
 
-print(HTTPSession.send_request(request_type=request_types.GET, endpoint=endpoints.ALBUMS).text)
+class StatusCodes:
+    STATUS_200 = '200'

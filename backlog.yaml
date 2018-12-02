@@ -21,7 +21,13 @@
         - can execute GET request
         - supports any endpoint as a parameter on target sevice
         - uses Logger class inside
-    status: Open
+    status: Resolved
 5:
     description: Design the first test script for /albums endpoint
+    status: Open
+6:
+    description: Implement a class for assertions
+    features:
+        - stores message templates inside
+        - logs
     status: Open
