@@ -30,4 +30,4 @@
     features:
         - stores message templates inside
         - logs
-    status: Open
+    status: Resolved
