@@ -11,7 +11,7 @@ mccabe==0.6.1
 more-itertools==4.3.0
 pathlib2==2.3.2
 pluggy==0.8.0
-py==1.7.0
+py==1.10.0
 pylint==2.2.2
 pytest==4.0.1
 requests==2.20.1
